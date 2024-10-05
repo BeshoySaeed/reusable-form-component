@@ -1,0 +1,8 @@
+.layout {
+  background-color: gray;
+  min-height: 100vh;
+}
+
+::ng-deep button {
+  padding: 10px ;
+}

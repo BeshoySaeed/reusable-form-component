@@ -1,0 +1,13 @@
+.form-container {
+  padding: 10px 20px;
+}
+
+input {
+  padding: 5px;
+  width: 100%;
+}
+
+label {
+  font-size: 12px;
+  text-wrap: nowrap;
+}

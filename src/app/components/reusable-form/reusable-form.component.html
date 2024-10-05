@@ -1,0 +1,58 @@
+<div [formGroup]="parentFormGroup" class="form-container grid">
+  <div
+    *ngFor="let controlName of controlNames"
+    class="col-12 md:col-6 lg:col-3"
+  >
+    <ng-container [ngSwitch]="getControlType(controlName)">
+      <!-- Text Input -->
+      <input
+        pInputText
+        *ngSwitchCase="'text'"
+        [formControlName]="controlName"
+        type="text"
+        placeholder="{{ controlName | titlecase }}"
+      />
+
+      <!-- Password Input -->
+      <input
+        pInputText
+        *ngSwitchCase="'password'"
+        [formControlName]="controlName"
+        type="password"
+        placeholder="{{ controlName | titlecase }}"
+      />
+
+      <!-- Email Input -->
+      <input
+        pInputText
+        *ngSwitchCase="'email'"
+        [formControlName]="controlName"
+        type="email"
+        placeholder="{{ controlName | titlecase }}"
+      />
+
+      <ng-container *ngSwitchCase="'check'">
+        <p>Horizontal</p>
+        <div class="formgroup-inline">
+          <div class="field-checkbox">
+            <input type="checkbox" id="city3" />
+            <label for="city3">Chicago</label>
+          </div>
+          <div class="field-checkbox">
+            <input type="checkbox" id="city4" />
+            <label for="city4">Los Angeles</label>
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- Default to text if no specific type is detected -->
+      <input
+        pInputText
+        *ngSwitchDefault
+        [formControlName]="controlName"
+        type="text"
+        placeholder="{{ controlName | titlecase }}"
+      />
+    </ng-container>
+  </div>
+</div>
